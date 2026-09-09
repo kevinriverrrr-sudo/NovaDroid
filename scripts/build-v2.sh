@@ -10,12 +10,17 @@ cd /home/z/my-project/novadroid
 x86_64-w64-mingw32-windres resources/app.rc -O coff -o resources/res.o
 
 # compile+link
-# PKG0_*: baked PRIMARY direct vikingfile /d/ link of the 0.3 Gaming Core
-# package (strict whole-zip SHA-256 verification before extraction).
+# PKG0_*: baked PRIMARY direct link of the 0.4 package (GitHub release asset,
+# public repo -> direct download, Range/resume supported, strict SHA-256).
+# Fallback mirrors: vikingfile /d/ links of 0.3 / 0.2 packages (slot [1] baked
+# in source). UPD0_*: baked update feed (GitHub latest release asset).
 x86_64-w64-mingw32-g++ -std=c++17 -O2 -municode -mwindows \
-    -DPKG0_URL='L"https://vikingfile.com/d/BpeVB2VoJd/NovaDroid-0.3-GamingCore-Package.zip"' \
-    -DPKG0_SIZE=1041410801LL \
-    -DPKG0_SHA='L"a9eda55f56e30e4c78efcbeb5ad527e78ae3380f6a18446487ab2e4b6151e397"' \
+    -DPKG0_URL='L"https://github.com/kevinriverrrr-sudo/NovaDroid/releases/download/v0.4.0/NovaDroid-0.4-UniversalPackage.zip"' \
+    -DPKG0_SIZE=1297219982LL \
+    -DPKG0_SHA='L"54d65d5a2b1cc32c86f67e2e3f0c2d547c343989233b392b8114874c7aa28b7e"' \
+    -DUPD0_URL='L"https://github.com/kevinriverrrr-sudo/NovaDroid/releases/latest/download/NovaDroidLauncher.exe"' \
+    -DUPD0_VER='L"0.4.0"' \
+    -DUPD0_SHA='L""' \
     src/main.cpp \
     src/ui.cpp src/pages.cpp src/dialogs.cpp \
     src/core.cpp src/backend.cpp src/util.cpp src/json.cpp src/strings.cpp \

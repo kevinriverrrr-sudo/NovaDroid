@@ -32,14 +32,14 @@ static bool g_urlsReady = false;
 #endif
 
 const BakedPkgUrl g_pkgUrls[] = {
-    // [0] PRIMARY (active): permanent vikingfile DIRECT /d/ link to the 0.3
-    // Gaming Core package (owner-generated, browser Turnstile). Whole-zip
-    // SHA-256 is verified before extraction (strict mode).
+    // [0] PRIMARY (active): permanent GitHub release asset (public repo ->
+    // direct download, Range/resume). Whole-zip SHA-256 verified (strict).
     { PKG0_URL, PKG0_SIZE, PKG0_SHA },
-    // [1] FALLBACK mirror: permanent vikingfile DIRECT link (user-provided)
-    // to the 0.2 Product Edition package with the SAME layout
-    // (qemu/, adb/, images/). The launcher skips the old exe during
-    // extraction, verifies the exact size and installs the runtime.
+    // [1] FALLBACK: vikingfile direct /d/ link of the 0.3 Gaming Core package
+    { L"https://vikingfile.com/d/BpeVB2VoJd/NovaDroid-0.3-GamingCore-Package.zip",
+      1041410801LL, L"" },
+    // [2] FALLBACK: permanent vikingfile DIRECT link (user-provided) to the
+    // 0.2 Product Edition package (same layout: qemu/, adb/, images/).
     { L"https://vikingfile.com/d/Wo92uuwHzN/NovaDroid-0.2-ProductEdition.zip",
       1057488473LL, L"" },
 };
