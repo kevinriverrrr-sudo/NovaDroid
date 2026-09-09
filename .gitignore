@@ -1,0 +1,8 @@
+build/
+pkgstage/
+pkg/
+*.zip
+*.iso
+*.o
+resources/res.o
+resources/setup_res.o
